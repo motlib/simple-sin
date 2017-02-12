@@ -1,0 +1,32 @@
+
+
+body {
+    font-family: Calibry, sans-serif;
+}
+
+.toolbox {
+    border: 2pt solid lightgray;
+    padding: 5pt;
+    margin: 5pt;
+}
+
+.toolbox:hover {
+    border-color: darkgray;
+}
+
+.toolbox .title {
+    background-color: lightgray;
+    padding: 2pt;
+    font-size: small;
+    font-weight: bold;
+}
+
+.datatable, .datatable * th, .datatable * td {
+    font-size: small;
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+
+.datatable {
+    margin: 5pt;
+}
