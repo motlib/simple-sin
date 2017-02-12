@@ -1,7 +1,16 @@
 
 
+/*
+  red: 8c2016
+  yellow: e5a623
+  blue: 294461
+  brown: 553b16
+  beige: bfa380
+*/
+
 body {
     font-family: Calibry, sans-serif;
+//    background-color: #bfa380;
 }
 
 .toolbox {
