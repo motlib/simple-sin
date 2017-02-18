@@ -1,17 +1,22 @@
-
-
-/*
-  red: 8c2016
-  yellow: e5a623
-  blue: 294461
-  brown: 553b16
-  beige: bfa380
-*/
+/* Styles for general page elements. */
 
 body {
     font-family: Calibry, sans-serif;
-//    background-color: #bfa380;
 }
+
+h1 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+p.devinfo {
+    font-size: 8pt;
+    color: gray;
+    text-align: center;
+}
+
+
+/* Toolbox styles */
 
 .toolbox {
     border: 2pt solid lightgray;
@@ -33,11 +38,14 @@ body {
     width: 130px;
     display: table-cell;
     vertical-align: top;
+    
 }
 
 .toolbox .content {
     width:auto;
     display: table-cell;
+    padding-left: 6pt;
+    font-size: 8pt;
 }
 
 pre {
@@ -45,12 +53,14 @@ pre {
 }
 
 
+/* Styles for data tables */
+
 .datatable, .datatable * th, .datatable * td {
-    font-size: small;
+    font-size: 8pt;
     border-collapse: collapse;
     border: 1px solid gray;
 }
 
-.datatable {
-    margin: 5pt;
+.datatable * th, .datatable * td {
+    padding: 1.5pt;
 }

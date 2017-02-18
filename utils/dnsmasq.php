@@ -32,14 +32,8 @@ function dnsmasq_get_dhcp_leases() {
 }
 
 function print_dhcp_leases() {
-
     $leases = dnsmasq_get_dhcp_leases();
     
-    $leasetable = render('tmpl/dhcp-leases.php', array(
+    display('tmpl/dhcp-leases.php', array(
         'leases' => $leases));
-    
-    $context = array(
-        'title' => 'DHCP Leases',
-        'output' => $leasetable);
-    display('tmpl/toolbox.php', $context);
 }

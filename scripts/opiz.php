@@ -1,10 +1,10 @@
-<?php
+<pre><?php
 
 /**
  * OrangePi Zero specific data
  */
 
-include_once('cmd.php');
+include_once('utils/cmd.php');
 
 
 function opiz_sbc_temp() {
@@ -12,9 +12,8 @@ function opiz_sbc_temp() {
 
     $val = $val / 1000.0;
 
-    $output = sprintf('<pre>SBC: %.1f°C</pre>', $val);
-
-    display('tmpl/toolbox.php', array(
-        'title' => 'Temperatures',
-        'output' => $output));
+    printf('SBC: %.1f°C', $val);
 }
+
+opiz_sbc_temp();
+?></pre>
