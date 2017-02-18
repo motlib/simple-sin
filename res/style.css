@@ -17,6 +17,8 @@ body {
     border: 2pt solid lightgray;
     padding: 5pt;
     margin: 5pt;
+    display: table;
+    width: 100%;
 }
 
 .toolbox:hover {
@@ -26,9 +28,22 @@ body {
 .toolbox .title {
     background-color: lightgray;
     padding: 2pt;
-    font-size: small;
+    font-size: 8pt;
     font-weight: bold;
+    width: 130px;
+    display: table-cell;
+    vertical-align: top;
 }
+
+.toolbox .content {
+    width:auto;
+    display: table-cell;
+}
+
+pre {
+    margin: 2px;
+}
+
 
 .datatable, .datatable * th, .datatable * td {
     font-size: small;
