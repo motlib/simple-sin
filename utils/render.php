@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Render a template.
+ */
 function render($path, $context = array())
 {
     ob_start();
@@ -15,6 +18,9 @@ function render($path, $context = array())
 }
 
 
+/**
+ * Render a template and display the result.
+ */
 function display($path, $context = array()) {
     echo render($path, $context);
 }
@@ -22,7 +28,8 @@ function display($path, $context = array()) {
 
 /**
  * Render a toolbox with the given title. $script is rendered and put
- * as content into the toolbox. */
+ * as content into the toolbox.
+ */
 function render_box($title, $script) {
     global $config;
 
@@ -42,9 +49,25 @@ function render_box($title, $script) {
 
 /**
  * Render all toolboxes described in the boxspecs structure (list of
- * title, script pairs). */
-function render_boxes($boxspecs) {
+ * title, script pairs).
+ */
+function sin_render_boxes($boxspecs) {
     foreach($boxspecs as $spec) {
         render_box($spec['title'], $spec['script']);
     }
 }
+
+
+
+function get_css_color($val) {
+    $val = max(0, min(1, $val));
+
+        
+    $r = sprintf("%d", 255 * $val);
+    $g = sprintf("%d", 255 * (1 - $val));
+    $b = sprintf("%d", 255 * 0);
+
+    $c = "rgb($r, $g, $b)";
+
+    return $c;
+}    

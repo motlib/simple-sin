@@ -1,15 +1,9 @@
 <!-- -*- mode:html -*- -->
 
 <?php
-include_once 'utils/render.php';
-include_once 'config.php';
-
-if($config['web']['enable_debug_msgs']) {
-    /* Used for debugging. */
-    error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-    ini_set("display_errors", 1);
-}
-?>
+   include_once 'utils/sin.php';
+   sin_init();
+?>   
 
 <html>
   <head>
@@ -28,7 +22,7 @@ if($config['web']['enable_debug_msgs']) {
   <body onload="setup_reload();">
     <h1>SIN - System Information</h1>
     
-    <?php render_boxes($config['boxspecs']); ?>
+    <?php sin_render_boxes($config['boxspecs']); ?>
 
     <p class="devinfo"><a href="https://github.com/motlib/simple-sin">Simple
     SIN</a> - (c) Andreas Schroeder</p>

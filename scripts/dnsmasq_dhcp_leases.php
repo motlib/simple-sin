@@ -9,7 +9,7 @@ $leases = dnsmasq_get_dhcp_leases();
     <th>Hostname</th>
     <th>MAC Address</th>
     <th>IP Address</th>
-    <th>Lease Start Time</th>
+    <th>Lease End Time</th>
   </tr>
   <?php foreach($leases as $lease): ?>
   <tr>
