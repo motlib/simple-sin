@@ -1,6 +1,7 @@
 <?php
 
 $config = array(
+    /* Boxes to show */
     'boxspecs' => array(
         array('title' => 'System Info', 'script' => 'sysinfo'),
         array('title' => 'Memory Usage', 'script' => 'mem_usage'),
@@ -8,7 +9,14 @@ $config = array(
         array('title' => 'SBC Temperature', 'script' => 'opiz'),
         array('title' => 'Network Interfaces', 'script' => 'network_ifaces'),
     ),
-    'network' => array('ifaces' => array('eth0', 'wlan0')),
-    
+
+    /* Network config */
+    'network' => array(
+        'ifaces' => array('eth0', 'wlan0')),
+
+    'web' => array(
+        'reload_time' => 10,
+        'enable_debug_msgs' => true),
+
 );  
 
