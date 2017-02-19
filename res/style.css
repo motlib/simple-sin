@@ -19,37 +19,29 @@ p.devinfo {
 /* Toolbox styles */
 
 .toolbox {
+    font-size: 8pt;
+    margin-top: 5pt;
     border: 2pt solid lightgray;
-    padding: 5pt;
-    margin: 5pt;
-    display: table;
-    width: 100%;
+}
+
+.toolbox .heading {
+    font-size: 8pt;
+    background-color: lightgray;
+    padding: 2px;
+    margin: 0;
 }
 
 .toolbox:hover {
     border-color: darkgray;
 }
 
-.toolbox .title {
-    background-color: lightgray;
-    padding: 2pt;
-    font-size: 8pt;
-    font-weight: bold;
-    width: 130px;
-    display: table-cell;
-    vertical-align: top;
-    
-}
-
 .toolbox .content {
-    width:auto;
-    display: table-cell;
-    padding-left: 6pt;
-    font-size: 8pt;
+    padding: 2pt
 }
 
-pre {
-    margin: 2px;
+.toolbox .content  pre {
+    margin: 0;
+    overflow: auto;
 }
 
 

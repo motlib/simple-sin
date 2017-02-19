@@ -1,9 +1,8 @@
 <!-- -*- mode:html -*- -->
 
 <div class="toolbox">
-  <div class="title"><?php echo $title; ?></div>
-  <div class="content">
-    <?php echo $output; ?>
-  </div>
+<h2 class="heading"><?php echo $title; ?></h2>
+<div class="content">
+  <?php echo $output; ?>
 </div>
-     
+</div>
