@@ -44,6 +44,9 @@ p.devinfo {
     overflow: auto;
 }
 
+.toolbox .content p {
+    margin: 2pt;
+}
 
 /* Styles for data tables */
 
