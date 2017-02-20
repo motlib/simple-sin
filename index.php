@@ -10,7 +10,7 @@
 
 <html>
   <head>
-    <title>SIN - System Informaion</title>
+    <title>SIN - System Information</title>
     <link rel="stylesheet" href="res/style.css" type="text/css" />
     <meta name="viewport"
           content="width=device-width; initial-scale=1.0" />
@@ -36,7 +36,9 @@
     <?php $t2 = microtime(true);
           if($config['web']['debug'] == true):
     ?>
-    <div style="font-size:x-small;">DEBUG: Load time <?php printf('%.3fs', $t2 - $t1); ?></div>
+    <div style="font-size:x-small;">
+      DEBUG: Load time <?php printf('%.3fs', $t2 - $t1); ?>
+    </div>
     <?php endif; ?>
   </body>
 </html>
