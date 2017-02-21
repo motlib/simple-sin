@@ -1,6 +1,10 @@
 <?php
 
-function storage_get_info($mp) {
+/**
+ * Retrieve storage / filesystem info by calling df -T and parsing
+ * output.
+ */
+function storage_get_info() {
     $data = get_cmd_output('df -T');
 
     $lines = explode("\n", $data);
@@ -12,8 +16,12 @@ function storage_get_info($mp) {
             $first = false;
             continue;
         }
-        
-        $res = preg_match('/([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)/', $line, $match);
+
+        /* Expect 7 fields separated by multiple spaces. */
+        $res = preg_match(
+            '/([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)\s+([^ ]*)/',
+            $line,
+            $match);
 
         if(($res === 1) && count($match) == 8) {
             $stinfo[$match[7]] = array(
