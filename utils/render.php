@@ -30,7 +30,7 @@ function display($path, $context = array()) {
  * Render a toolbox with the given title. $script is rendered and put
  * as content into the toolbox.
  */
-function render_box($title, $script) {
+function sin_render_box($title, $script) {
     global $config;
 
     $scriptout = render(
@@ -53,7 +53,7 @@ function render_box($title, $script) {
  */
 function sin_render_boxes($boxspecs) {
     foreach($boxspecs as $spec) {
-        render_box($spec['title'], $spec['script']);
+        sin_render_box($spec['title'], $spec['script']);
     }
 }
 
