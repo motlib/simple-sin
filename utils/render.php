@@ -30,7 +30,7 @@ function display($path, $context = array()) {
  * Render a toolbox with the given title. $script is rendered and put
  * as content into the toolbox.
  */
-function sin_render_box($title, $script) {
+function sin_render_box($title, $script, $with_cnt_tag=false) {
     global $config;
 
     $scriptout = render(
@@ -43,8 +43,19 @@ function sin_render_box($title, $script) {
         'config' => $config,
         'script' => $script,
     );
+
+    //TODO move to template
+    /* Add additional div tag around toolbox to simplify reloading by
+     * ajax. */
+    if($with_cnt_tag == true) {
+        echo "<div id=\"$script\">\n";
+    }
     
     display('tmpl/toolbox.php', $context);
+
+    if($with_cnt_tag == true) {
+        echo "</div>\n";
+    }
 }
 
 
@@ -54,7 +65,7 @@ function sin_render_box($title, $script) {
  */
 function sin_render_boxes($boxspecs) {
     foreach($boxspecs as $spec) {
-        sin_render_box($spec['title'], $spec['script']);
+        sin_render_box($spec['title'], $spec['script'], true);
     }
 }
 

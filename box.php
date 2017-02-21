@@ -7,5 +7,5 @@ $script = $_GET['script'];
 $title = $_GET['title'];
 
 sin_init();
-echo sin_render_box($title, $script);
+echo sin_render_box($title, $script, false);
 
