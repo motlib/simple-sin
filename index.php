@@ -16,16 +16,10 @@
           content="width=device-width; initial-scale=1.0" />
   </head>
 
-  <script>
-    var setup_reload = function() {
-      setTimeout(
-        'location.reload(true);',
-        1000 * <?php echo $config['web']['reload_time']; ?>);
-    }
-  </script>
+  <script type="text/javascript" src="res/reload.js"></script>
   <script type="text/javascript" src="res/toggle.js"></script>
   
-  <body onload="setup_reload();">
+  <body onload="setup_reload(<?php echo $config['web']['reload_time']; ?>);">
     <h1>SIN - System Information</h1>
     
     <?php sin_render_boxes($config['boxspecs']); ?>
