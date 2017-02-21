@@ -41,6 +41,7 @@ function sin_render_box($title, $script) {
         'title' => $title,
         'output' => $scriptout,
         'config' => $config,
+        'script' => $script,
     );
     
     display('tmpl/toolbox.php', $context);
