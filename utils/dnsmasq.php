@@ -1,5 +1,7 @@
 <?php
 
+include_once 'utils/cmd.php';
+
 function dnsmasq_get_dhcp_leases() {
     $output = get_cmd_output('cat /var/lib/misc/dnsmasq.leases');
 
