@@ -20,7 +20,6 @@ $config = array(
         'mount_points' => array('/')),
 
     'web' => array(
-        'reload_time' => 0,
         'debug' => true),
 );
 
