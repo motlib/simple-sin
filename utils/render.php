@@ -30,7 +30,7 @@ function display($path, $context = array()) {
  * Render a toolbox with the given title. $script is rendered and put
  * as content into the toolbox.
  */
-function sin_render_box($title, $script, $with_cnt_tag=false) {
+function sin_render_box($script, $with_cnt_tag=false) {
     global $config;
 
     $scriptout = render(
@@ -38,10 +38,11 @@ function sin_render_box($title, $script, $with_cnt_tag=false) {
         array('config' => $config));
     
     $context = array(
-        'title' => $title,
+        'script' => $script,
+        'title' => $config['boxspecs'][$script]['title'],
+        'boxspec' => $config['boxspecs'][$script],
         'output' => $scriptout,
         'config' => $config,
-        'script' => $script,
     );
 
     //TODO move to template
@@ -64,8 +65,8 @@ function sin_render_box($title, $script, $with_cnt_tag=false) {
  * title, script pairs).
  */
 function sin_render_boxes($boxspecs) {
-    foreach($boxspecs as $spec) {
-        sin_render_box($spec['title'], $spec['script'], true);
+    foreach($boxspecs as $script => $spec) {
+        sin_render_box($script, true);
     }
 }
 

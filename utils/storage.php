@@ -1,7 +1,9 @@
 <?php
 
+include_once 'cmd.php';
+
 /**
- * Retrieve storage / filesystem info by calling df -T and parsing
+ * Retrieve storage / filesystem info by calling `df -T` and parsing
  * output.
  */
 function storage_get_info() {

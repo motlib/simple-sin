@@ -1,15 +1,6 @@
-/**
- * Function to be called in onload event to set up automatic page
- * reloading.
- */
-//var setup_reload = function(reload_time) {
-//    if(reload_time != 0) {
-        //setTimeout(
-        //    'location.reload(true);',
-        //    1000 * reload_time);
-//    }
-//}
+/* -*- mode:javascript -*- */
 
+<?php include_once "../config.php"; ?>
 
 (function($) {
     $(document).ready(function() {
@@ -30,8 +21,11 @@
         });
 //        var $container = $("#sysinfo");
 //        $container.load("box.php?title=Sysinfo&script=sysinfo");
+
+<?php foreach($config['boxspecs'] as $script => $spec): ?>
         var refreshId = setInterval(function() {
-            $("#sysinfo").load('box.php?title=Sysinfox&script=sysinfo');
-        }, 5000);
+            $("#<?php echo $script; ?>").load('box.php?script=<?php echo $script; ?>');
+        }, <?php echo $spec['reload_time']; ?>);
+<?php endforeach; ?>
     });
 })(jQuery);

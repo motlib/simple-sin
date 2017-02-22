@@ -1,5 +1,7 @@
 <?php
 
+include_once 'cmd.php';
+
 function mem_get_info() {
     $out = get_cmd_output('cat /proc/meminfo');
 

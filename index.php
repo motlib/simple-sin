@@ -17,9 +17,9 @@
   </head>
 
   <script type="text/javascript" src="res/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="res/reload.js"></script>
+  <script type="text/javascript" src="res/reload_js.php"></script>
   <script type="text/javascript" src="res/toggle.js"></script>
-  
+
   <body onload="/* setup_reload(<?php echo
                 $config['web']['reload_time']; ?>); */">
     <h1>SIN - System Information</h1>
