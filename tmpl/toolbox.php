@@ -4,7 +4,7 @@
   <h2 class="heading" onclick="toggle_content(this);">
     <?php echo $boxspec['title']; ?>
   </h2>
-  <div class="content">
+  <div class="content" id="<?php echo $script; ?>">
     <?php echo $output; ?>
   </div>
 </div>

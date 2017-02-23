@@ -1,5 +1,4 @@
 <!-- -*- mode:html -*- -->
-
 <?php
    include_once 'utils/sin.php';
    $t1 = microtime(true);
@@ -8,20 +7,20 @@
 
 ?>   
 
+<!DOCTYPE html>
 <html>
   <head>
     <title>SIN - System Information</title>
     <link rel="stylesheet" href="res/style.css" type="text/css" />
     <meta name="viewport"
           content="width=device-width; initial-scale=1.0" />
+    
+    <script type="text/javascript" src="res/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="res/reload_js.php"></script>
+    <script type="text/javascript" src="res/toggle.js"></script>
   </head>
 
-  <script type="text/javascript" src="res/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="res/reload_js.php"></script>
-  <script type="text/javascript" src="res/toggle.js"></script>
-
-  <body onload="/* setup_reload(<?php echo
-                $config['web']['reload_time']; ?>); */">
+  <body>
     <h1>SIN - System Information</h1>
     
     <?php sin_render_boxes($config['boxspecs']); ?>

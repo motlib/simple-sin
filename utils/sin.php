@@ -24,32 +24,25 @@ function sin_init() {
  * Render a toolbox with the given title. $script is rendered and put
  * as content into the toolbox.
  */
-function sin_render_box($script, $with_cnt_tag=false) {
+function sin_render_box($script, $with_toolbox=true) {
     global $config;
 
     $scriptout = render(
         "scripts/${script}.php",
         array('config' => $config));
-    
-    $context = array(
-        'script' => $script,
-        'title' => $config['boxspecs'][$script]['title'],
-        'boxspec' => $config['boxspecs'][$script],
-        'output' => $scriptout,
-        'config' => $config,
-    );
 
-    //TODO move to template
-    /* Add additional div tag around toolbox to simplify reloading by
-     * ajax. */
-    if($with_cnt_tag == true) {
-        echo "<div id=\"$script\">\n";
-    }
-    
-    display('tmpl/toolbox.php', $context);
+    if($with_toolbox == false) {
+        echo $scriptout;
+    } else {
+        $context = array(
+            'script' => $script,
+            'title' => $config['boxspecs'][$script]['title'],
+            'boxspec' => $config['boxspecs'][$script],
+            'output' => $scriptout,
+            'config' => $config,
+        );
 
-    if($with_cnt_tag == true) {
-        echo "</div>\n";
+        display('tmpl/toolbox.php', $context);
     }
 }
 

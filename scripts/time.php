@@ -1,0 +1,1 @@
+<p>Current system time is <span style="font-weight:bold;"><?php echo strftime('%Y-%m-%d %T') ?></span>.</p>
