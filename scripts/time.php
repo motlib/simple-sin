@@ -6,6 +6,5 @@
   </span>
   and time is
   <span style="font-weight:bold;">
-    <?php echo strftime('%T') ?>
-  </span>.
+    <?php echo strftime('%T') ?></span>.
 </p>
