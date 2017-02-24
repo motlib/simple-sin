@@ -15,8 +15,6 @@ $stemp = sprintf('%.1f°C', $temp);
 $pct = ($temp - 20.0) / (80.0 - 20.0);
 
 ?>
-<div>SBC temperature is
-<span style="font-weight: bold; color: <?php echo get_css_color($pct); ?>">
-<?php echo $stemp; ?>
-</span>.
-</div>
+<p>
+SBC temperature is <?= get_html_color($stemp, $pct) ?>.
+</p>

@@ -4,7 +4,6 @@
    $t1 = microtime(true);
 
    sin_init();
-
 ?>   
 
 <!DOCTYPE html>

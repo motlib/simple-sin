@@ -13,10 +13,10 @@ $leases = dnsmasq_get_dhcp_leases();
   </tr>
   <?php foreach($leases as $lease): ?>
   <tr>
-    <td><?php echo $lease['hostname'] ?></td>
-    <td><?php echo $lease['mac'] ?></td>
-    <td><?php echo $lease['ip'] ?></td>
-    <td><?php echo $lease['start'] ?></td>
+    <td><?= $lease['hostname'] ?></td>
+    <td><?= $lease['mac'] ?></td>
+    <td><?= $lease['ip'] ?></td>
+    <td><?= $lease['start'] ?></td>
   </tr>
   <?php endforeach ?>
 </table>

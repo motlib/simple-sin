@@ -9,6 +9,10 @@ $stinfo = storage_get_info();
   $mpinfo = $stinfo[$mp];
   $pct = $mpinfo['used'] / $mpinfo['size'];
 ?>
-<p>The filesystem at <span style="font-weight:bold;"><?php echo $mp; ?></span> is
-<span style="font-weight: bold; color:<?php echo get_css_color($pct); ?>"><?php echo $mpinfo['used_pct']; ?></span> full.</p>
+<p>
+  The <?= $mpinfo['type'] ?> filesystem
+  mounted from <?= $mpinfo['device'] ?>
+  to <span style="font-weight:bold;"><?= $mp; ?></span>
+  is <?= get_html_color($mpinfo['used_pct'], $pct) ?> full.
+</p>
 <?php endforeach;?>
