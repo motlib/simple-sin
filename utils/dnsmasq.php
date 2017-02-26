@@ -14,8 +14,6 @@ function dnsmasq_get_dhcp_leases() {
     $lines = explode("\n", $output);
     foreach($lines as $line) {
         $d = explode(' ', $line);
-
-        print(count($d));
         if(count($d) != 5) {
             continue;
         }

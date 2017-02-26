@@ -32,3 +32,8 @@ function fmt_date($dt, $default='') {
 
     return $dt->format('%c');
 }
+
+
+function fmt_bold($text) {
+    return '<span style="font-weight:bold;">' . $text . '</span>';
+}
