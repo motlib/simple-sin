@@ -10,6 +10,13 @@ include_once 'style.php';
  */
 function sin_init() {
     global $config;
+
+    /* Set default values in config. */
+    foreach($config['boxspecs'] as &$boxspec) {
+        if(!array_key_exists('collapsed', $boxspec)) {
+            $boxspec['collapsed'] = false;
+        }
+    }
     
     /* Configure error messages */
     if($config['web']['debug']) {
