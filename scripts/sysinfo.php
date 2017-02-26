@@ -8,9 +8,7 @@ $loadavg = get_loadavg();
 
 <p>
   Current system date is
-  <?= fmt_bold(strftime('%Y-%m-%d')) ?>
-  and time is
-  <?= fmt_bold(strftime('%T')) ?>.
+  <?= fmt_bold(strftime('%Y-%m-%d %T')) ?>.
 </p>
 
 <p>

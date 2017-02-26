@@ -10,8 +10,8 @@
 
 <?php foreach($config['boxspecs'] as $script => $spec): ?>
         var refreshId = setInterval(function() {
-            $("#<?php echo $script; ?>").load('box.php?script=<?php echo $script; ?>');
-        }, <?php echo $spec['reload_time']; ?>);
+            $("#content_<?= $script; ?>").load('box.php?script=<?php echo $script; ?>');
+        }, <?= $spec['reload_time']; ?>);
 <?php endforeach; ?>
     });
 })(jQuery);

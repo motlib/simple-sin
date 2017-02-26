@@ -3,7 +3,9 @@
 include_once 'utils/cmd.php';
 
 function _comp_hostname($a, $b) {
-    return strnatcmp($a['hostname'], $b['hostname']);
+    return strnatcmp(
+        strtolower($a['hostname']),
+        strtolower($b['hostname']));
 }
 
 function dnsmasq_get_dhcp_leases() {

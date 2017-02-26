@@ -1,5 +1,6 @@
-<?php
+<?php /* -*- mode:html -*- */
 include_once 'utils/storage.php';
+include_once 'utils/format.php';
 
 $stinfo = storage_get_info();
 ?>
@@ -10,9 +11,12 @@ $stinfo = storage_get_info();
   $pct = $mpinfo['used'] / $mpinfo['size'];
 ?>
 <p>
-  The <?= $mpinfo['type'] ?> filesystem
-  mounted from <?= $mpinfo['device'] ?>
-  to <span style="font-weight:bold;"><?= $mp; ?></span>
-  is <?= get_html_color($mpinfo['used_pct'], $pct) ?> full.
+  The
+  <?= $mpinfo['type'] ?>
+  filesystem at
+  <?= fmt_bold($mp) ?> (<?= $mpinfo['device'] ?>)
+  is
+  <?= get_html_color($mpinfo['used_pct'], $pct) ?>
+  full.
 </p>
 <?php endforeach;?>
