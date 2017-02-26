@@ -34,6 +34,9 @@ function fmt_date($dt, $default='') {
 }
 
 
+/**
+ * Format text in bold.
+ */
 function fmt_bold($text) {
     return '<span style="font-weight:bold;">' . $text . '</span>';
 }

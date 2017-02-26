@@ -1,6 +1,5 @@
 <?php /* -*- mode:html -*- */
 
-//TODO: move to utility script
 include_once 'utils/format.php';
 include_once 'utils/sysinfo.php';
 
