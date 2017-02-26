@@ -15,23 +15,31 @@ function dnsmasq_get_dhcp_leases() {
     foreach($lines as $line) {
         $d = explode(' ', $line);
 
-        if(count($d) < 4) {
+        print(count($d));
+        if(count($d) != 5) {
             continue;
         }
         
-        $fields = array(
+        
+        $lease = array(
+            'end_timestamp' => $d[0],
             'mac' => $d[1],
             'ip' => $d[2],
-            'hostname' => $d[3]
+            'hostname' => $d[3],
         );
         
         if($d[0] != '0') {
-            $fields['start'] = strftime("%c", $d[0]);
+            /* date is a unix timestamp */
+            $dt = new DateTime();
+            $dt->setTimestamp($d[0]);
+            $lease['end'] = $dt;
+            $lease['end_ival'] = (new DateTime())->diff($lease['end']);
         } else {
-            $fields['start'] = 'n/a';
+            $lease['end'] = NULL;
+            $lease['end_ival'] = NULL;
         }
 
-        $leases[] = $fields;
+        $leases[] = $lease;
     }
 
     usort($leases, '_comp_hostname');
