@@ -2,6 +2,10 @@
 
 include_once 'utils/cmd.php';
 
+function _comp_hostname($a, $b) {
+    return strnatcmp($a['hostname'], $b['hostname']);
+}
+
 function dnsmasq_get_dhcp_leases() {
     $output = get_cmd_output('cat /var/lib/misc/dnsmasq.leases');
 
@@ -30,12 +34,7 @@ function dnsmasq_get_dhcp_leases() {
         $leases[] = $fields;
     }
 
-    return $leases;
-}
-
-function print_dhcp_leases() {
-    $leases = dnsmasq_get_dhcp_leases();
+    usort($leases, '_comp_hostname');
     
-    display('tmpl/dhcp-leases.php', array(
-        'leases' => $leases));
+    return $leases;
 }
