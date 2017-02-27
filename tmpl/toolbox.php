@@ -1,6 +1,6 @@
 <!-- -*- mode:html -*- -->
 
-<div class="toolbox">
+<div class="toolbox" id="tb_<?= $script ?>">
   <h2 class="heading"
       id="head_<?= $script ?>"
       onclick="toggle_content(this);">

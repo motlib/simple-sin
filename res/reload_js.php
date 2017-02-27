@@ -2,6 +2,8 @@
 
 <?php include_once "../config.php"; ?>
 
+/* Extract the script name from the ajax request URL. Used to
+ * associate a ajax request event with a toolbox being updated. */
 var getScript = function(url) {
     var regex = /script=([^&]+)/;
 
@@ -15,12 +17,16 @@ var getScript = function(url) {
         return null;
     }
 }
-    
+
+/* Register 'ajaxSend' event handler. Fires when an ajax request is
+ * started. */
 $( document ).ajaxSend(function( event, request, settings ) {
     var script = getScript(settings.url);
     $("#tglind_" + script).css('color', 'red');
 });
 
+/* Register 'ajaxComplete' event handler. Fires when an ajax request
+ * is completed. */
 $( document ).ajaxComplete(function( event, request, settings ) {
     var script = getScript(settings.url);
     $("#tglind_" + script).css('color', 'black');
