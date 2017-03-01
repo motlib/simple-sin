@@ -40,3 +40,41 @@ function fmt_date($dt, $default='') {
 function fmt_bold($text) {
     return '<span style="font-weight:bold;">' . $text . '</span>';
 }
+
+
+/**
+ * Round $num to the specified number of significant figures. 
+ */
+function fmt_sig($num, $sig=3) {
+    $l = floor(log10($num)) + 1;
+
+    $num = $num / pow(10, ($l - $sig));
+    
+    $num = round($num);    
+
+    return ($num * pow(10, ($l - $sig)));
+}
+
+
+/**
+ * Format $bytes with the right data size value and the specified
+ * number of significant figures.
+ */
+function fmt_bytes($bytes, $sig = 3) {
+    $bytes = abs($bytes);
+    
+    $sizes = array(
+        pow(1024, 4) => 'TB',
+        pow(1024, 3) => 'GB',
+        pow(1024, 2) => 'MB',
+        pow(1024, 1) => 'kB',
+    );
+
+    foreach($sizes as $r => $u) {
+        if($bytes >= $r) {
+            return fmt_sig($bytes / $r, $sig) . $u;
+        }
+    }
+
+    return fmt_sig($bytes, $sig) . 'B';
+}
