@@ -79,5 +79,5 @@ function get_html_color($text, $val, $bold=true, $tag='span', $map=NULL) {
 
     $style .= 'color:' . get_css_color($val, $map) . ';';
 
-    return "<${tag} style=\"${style}\">${text}</${tag}>\n";
+    return "<${tag} style=\"${style}\">${text}</${tag}>";
 }
