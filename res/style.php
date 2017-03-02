@@ -1,3 +1,11 @@
+<?php
+/* -*- mode:css -*- */
+
+header('Content-Type: text/css');
+
+include_once '../config.php';
+?>
+
 /* Styles for general page elements. */
 
 body {
@@ -5,10 +13,11 @@ body {
 }
 
 h1 {
-    font-size: 12px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
+/* Developer info footer */
 p.devinfo {
     font-size: 8pt;
     color: gray;
@@ -19,13 +28,13 @@ p.devinfo {
 /* Toolbox styles */
 
 .toolbox {
-    font-size: 8pt;
+    font-size: <?= $config['web']['fontsize'] ?>;
     margin-top: 5pt;
     border: 2pt solid lightgray;
 }
 
 .toolbox .heading {
-    font-size: 8pt;
+    font-size: <?= $config['web']['fontsize'] ?>;
     background-color: lightgray;
     padding: 2px;
     margin: 0;
@@ -51,7 +60,7 @@ p.devinfo {
 /* Styles for data tables */
 
 .datatable, .datatable * th, .datatable * td {
-    font-size: 8pt;
+    font-size: <?php $config['web']['fontsize'] ?>;
     border-collapse: collapse;
     border: 1px solid gray;
 }

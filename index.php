@@ -10,9 +10,10 @@
 <html>
   <head>
     <title>SIN - System Information</title>
-    <link rel="stylesheet" href="res/style.css" type="text/css" />
     <meta name="viewport"
           content="width=device-width; initial-scale=1.0" />
+
+    <link rel="stylesheet" href="res/style.php" type="text/css" />
     
     <script type="text/javascript" src="res/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="res/reload_js.php"></script>
