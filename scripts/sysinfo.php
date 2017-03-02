@@ -1,24 +1,18 @@
-<?php /* -*- mode:html -*- */
+<?php
 
-include_once 'utils/format.php';
 include_once 'utils/sysinfo.php';
+include_once 'utils/format.php';
 
-$loadavg = get_loadavg();
-?>
+function sin_get_sysinfo($sin, &$context) {
+    $loadavg = get_loadavg();
+    $context['lavg_1'] = $loadavg[0];
+    $context['lavg_5'] = $loadavg[1];
+    $context['lavg_15'] = $loadavg[2];
+    
+    $context['hostname'] = get_hostname();
+    $context['kernel'] = get_kernel_version();
+    $context['uptime'] = fmt_date_interval(get_uptime());
 
-<p>
-  Current system date is
-  <?= fmt_bold(strftime('%Y-%m-%d %T')) ?>.
-</p>
+    $context['time'] = strftime('%Y-%m-%d %T');
+}
 
-<p>
-  Host
-  <?= fmt_bold(get_hostname()) ?>
-  is running kernel
-  <?= fmt_bold(get_kernel_version()) ?>
-  for <?= fmt_date_interval(get_uptime()) ?>.
-  Load average is 
-  <?php for($i = 0; $i < 3; ++$i): ?>
-  <?php echo get_html_color($loadavg[$i],$loadavg[$i]) ?>
-  <?php endfor; ?>
-</p>

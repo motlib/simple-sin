@@ -1,15 +1,14 @@
 <?php
 include_once 'utils/net.php';
 
-foreach($config['network']['ifaces'] as $iface): ?>
+function sin_get_network_ifaces($sin, &$context) {
+    $devs = array();
+    foreach($sin->cfg['network']['ifaces'] as $iface) {
+        $devinfo = net_get_dev_info($iface);
+        $devinfo['iface'] = $iface;
 
-<p>
-<?php $devinfo = net_get_dev_info($iface); ?>
-Interface <span style="font-weight:bold;"><?= $iface; ?></span>
-(<?= $devinfo['hwaddress']; ?>)
-with IP address <span style="font-weight:bold;"><?= $devinfo['ipaddress']; ?></span>
-has received <?= $devinfo['rx_bytes_usr']; ?> 
-and sent <?= $devinfo['tx_bytes_usr']; ?>.
-</p>
+        $devs[] = $devinfo;
+    }
 
-<?php endforeach; ?>
+    $context['devs'] = $devs;
+}

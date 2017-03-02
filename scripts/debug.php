@@ -1,5 +1,6 @@
-<?php /* -*- mode:html -*- */ ?>
+<?php 
 
-<p>
-  Total load time <?= sprintf('%.3fs', $sin->get_total_time()); ?>.
-</p>
+function sin_get_debug($sin, &$context) {
+    $context['total_time'] = $sin->get_total_time();
+}
+

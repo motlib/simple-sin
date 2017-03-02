@@ -39,7 +39,8 @@ class Sin
             /* Add the internal debugging output box. */
             $this->cfg['boxspecs']['debug'] = array(
                 'title' => 'Debug Box',
-                'reload_time' => 0);
+                'reload_time' => 0,
+                'new' => true);
         }
     }
 
@@ -49,12 +50,22 @@ class Sin
      * as content into the toolbox.
      */
     function render_box($script, $with_toolbox=true) {
+
+        $boxspec = $this->cfg['boxspecs'][$script];
+        
+        include_once "scripts/$script.php";
+
+        $context = array(
+            'sin' => $this,
+        );
+
+        $fname = "sin_get_$script";
+        
+        $fname($this, $context);
+        
         $scriptout = render(
-            "scripts/${script}.php",
-            array(
-                'config' => $this->cfg,
-                'sin' => $this,
-            ));
+            "tmpl/${script}.php",
+            $context);
 
         /* Render the toolbox */
         if($with_toolbox == false) {
