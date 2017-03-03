@@ -16,7 +16,7 @@ function get_css_color($val, $map) {
 
 /* Color map going from green over orange to red. */
 $red_green_map = array(
-    array(0, 255, 0), // green
+    array(0, 200, 0), // green
     array(255,220, 0), // orange
     array(255, 0, 0)); // red
 
