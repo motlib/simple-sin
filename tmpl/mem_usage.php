@@ -1,7 +1,4 @@
-<?php /* -*- mode:html -*- */
-
-include_once 'utils/format.php';
-?>
+<?php /* -*- mode:html -*- */ ?>
 
 <p>
   The system uses

@@ -1,4 +1,4 @@
-<?php include_once 'utils/format.php'; ?>
+<?php /* -*- mode:html -*- */ ?>
 
 <?php foreach($devs as $dev): ?>
 <p>

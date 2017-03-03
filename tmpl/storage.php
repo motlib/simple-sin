@@ -1,6 +1,4 @@
-<?php /* -*- mode:html -*- */
-include_once 'utils/format.php';
-?>
+<?php /* -*- mode:html -*- */ ?>
 
 <?php foreach($mpinfos as $mp): ?>
 <p>

@@ -1,4 +1,4 @@
-<!-- -*- mode:html -*- -->
+<?php /* -*- mode:html -*- */ ?>
 
 <div class="toolbox" id="tb_<?= $script ?>">
   <h2 class="heading"

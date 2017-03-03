@@ -2,7 +2,11 @@
 
 include_once 'utils/render.php';
 include_once 'cfg/config.php';
+
+/* These includes are also available in all templates and scripts. So
+ * this is for convenience. */
 include_once 'utils/style.php';
+include_once 'utils/format.php';
 
 class Sin
 {
@@ -21,7 +25,14 @@ class Sin
         $this->cfg = $config;
 
         $this->setupDebug();
-        
+        $this->setConfigDefaults();
+    }
+
+    
+    /**
+     * Set default values for some config elements.
+     */
+    protected function setConfigDefaults() {
         /* Set default values in config. */
         foreach($this->cfg['boxspecs'] as &$boxspec) {
             if(!array_key_exists('collapsed', $boxspec)) {
@@ -30,6 +41,7 @@ class Sin
         }
     }
 
+    
     /**
      * Set up debugging functions.
      */
@@ -58,30 +70,28 @@ class Sin
         
         $boxspec = $this->cfg['boxspecs'][$script];
         
-        include_once "scripts/$script.php";
-
-        $context = array('sin' => $this);
+        $context = array(
+            'sin' => $this,
+            'script' => $script,
+            'boxspec' => $boxspec,
+            'title' => $boxspec['title'],
+            'config' => $this->cfg,
+        );
 
         $fname = "sin_get_$script";
-        
+
+        /* Update context with script specific data by including the
+         * script and calling the sin_get_$script function. */
+        include_once "scripts/$script.php";
         $fname($this, $context);
         
-        $scriptout = render(
-            "tmpl/${script}.php",
-            $context);
-
+        $output = render("tmpl/${script}.php", $context);
+        
         /* Render the toolbox */
         if($with_toolbox == false) {
-            echo $scriptout;
+            echo $output;
         } else {
-            $context = array(
-                'script' => $script,
-                'title' => $this->cfg['boxspecs'][$script]['title'],
-                'boxspec' => $this->cfg['boxspecs'][$script],
-                'output' => $scriptout,
-                'config' => $this->cfg,
-            );
-
+            $context['output'] = $output;
             display('tmpl/toolbox.php', $context);
         }
 
@@ -89,6 +99,7 @@ class Sin
         $this->times[$script] = 1000 * (microtime() - $t_start);
     }
 
+    
     /**
      * Render all toolboxes described in the boxspecs structure (list of
      * title, script pairs).

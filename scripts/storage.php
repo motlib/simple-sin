@@ -1,6 +1,5 @@
 <?php 
 include_once 'utils/storage.php';
-include_once 'utils/format.php';
 
 function sin_get_storage($sin, &$context) {
     $stinfo = storage_get_info();
