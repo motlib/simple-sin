@@ -29,9 +29,9 @@ function storage_get_info() {
             $stinfo[$match[7]] = array(
                 'device' => $match[1],
                 'type' => $match[2],
-                'size' => $match[3],
-                'used' => $match[4],
-                'free' => $match[5],
+                'size' => 1024 * $match[3],
+                'used' => 1024 * $match[4],
+                'free' => 1024 * $match[5],
                 'used_pct' => $match[6],
             );
         }
