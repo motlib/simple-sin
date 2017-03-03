@@ -1,8 +1,8 @@
 <?php
 
-include_once 'render.php';
-include_once 'config.php';
-include_once 'style.php';
+include_once 'utils/render.php';
+include_once 'cfg/config.php';
+include_once 'utils/style.php';
 
 class Sin
 {

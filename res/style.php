@@ -1,15 +1,20 @@
-<?php
-/* -*- mode:css -*- */
+<?php /* -*- mode:css -*- */
 
 header('Content-Type: text/css');
 
-include_once '../config.php';
+include_once '../cfg/config.php';
+
+$style = $styles[$config['web']['style']];
+
 ?>
 
 /* Styles for general page elements. */
 
 body {
+    
     font-family: Calibry, sans-serif;
+    color: <?= $style['text-color'] ?>;
+    background-color: <?= $style['background-color'] ?>;
 }
 
 h1 {
@@ -30,18 +35,18 @@ p.devinfo {
 .toolbox {
     font-size: <?= $config['web']['fontsize'] ?>;
     margin-top: 5pt;
-    border: 2pt solid lightgray;
+    border: 2pt solid <?= $style['border-color'] ?>;
 }
 
 .toolbox .heading {
     font-size: <?= $config['web']['fontsize'] ?>;
-    background-color: lightgray;
+    background-color: <?= $style['head-color'] ?>;
     padding: 2px;
     margin: 0;
 }
 
 .toolbox:hover {
-    border-color: darkgray;
+    border-color: <?= $style['border-hover-color'] ?>;
 }
 
 .toolbox .content {
