@@ -66,7 +66,7 @@ p.devinfo {
 /* Styles for data tables */
 
 .datatable, .datatable * th, .datatable * td {
-    font-size: <?php $config['web']['fontsize'] ?>;
+    font-size: <?= $config['web']['fontsize'] ?>;
     border-collapse: collapse;
     border: 1px solid gray;
 }

@@ -1,6 +1,6 @@
 /* -*- mode:javascript -*- */
 
-<?php include_once "../config.php"; ?>
+<?php include_once '../cfg/config.php'; ?>
 
 /* Extract the script name from the ajax request URL. Used to
  * associate a ajax request event with a toolbox being updated. */
