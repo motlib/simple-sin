@@ -44,13 +44,16 @@ class Sin
         }
     }
 
+
+    public $times = array();
     
     /**
      * Render a toolbox with the given title. $script is rendered and put
      * as content into the toolbox.
      */
     function render_box($script, $with_toolbox=true) {
-
+        $t_start = microtime();
+        
         $boxspec = $this->cfg['boxspecs'][$script];
         
         include_once "scripts/$script.php";
@@ -81,6 +84,9 @@ class Sin
 
             display('tmpl/toolbox.php', $context);
         }
+
+        /* Store box processing time in ms. */
+        $this->times[$script] = (microtime() - $t_start) * 1000;
     }
 
     /**
@@ -99,6 +105,6 @@ class Sin
      * Returns the total processing time.
      */
     public function get_total_time() {
-        return (microtime() - $this->t_start);
+        return (microtime() - $this->t_start) * 1000;
     }
 }
