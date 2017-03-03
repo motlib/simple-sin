@@ -3,6 +3,7 @@
 header('Content-Type: text/css');
 
 include_once '../cfg/config.php';
+include_once '../cfg/styles.php';
 
 $style = $styles[$config['web']['style']];
 
