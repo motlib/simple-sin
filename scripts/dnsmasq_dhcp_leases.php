@@ -1,7 +1,6 @@
 <?php /* -*- mode:html -*- */
 
 include_once 'utils/dnsmasq.php';
-include_once 'utils/format.php';
 
 $leases = dnsmasq_get_dhcp_leases();
 ?>

@@ -1,7 +1,6 @@
 <?php
 
 include_once 'utils/sysinfo.php';
-include_once 'utils/format.php';
 
 function sin_get_sysinfo($sin, &$context) {
     $loadavg = get_loadavg();

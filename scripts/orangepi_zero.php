@@ -5,7 +5,6 @@
  */
 
 include_once 'utils/orangepi_zero.php';
-include_once 'utils/format.php';
 
 $info = orangepi_zero_get_info();
 ?>

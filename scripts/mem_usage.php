@@ -1,7 +1,6 @@
 <?php 
 
 include_once 'utils/meminfo.php';
-include_once 'utils/format.php';
 
 function sin_get_mem_usage($sin, &$context) {
     //TODO: make meminfo return byte values
