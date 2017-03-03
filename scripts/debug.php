@@ -1,6 +1,13 @@
 <?php 
 
 function sin_get_debug($sin, &$context) {
-    $context['total_time'] = $sin->get_total_time();
+    $total = 0;
+    foreach($sin->times as $name => $time) {
+        $total += $time;
+    }
+
+    $sin->times['total'] = $total;
+    
+    $context['times'] = $sin->times;
 }
 

@@ -4,18 +4,22 @@ include_once 'render.php';
 include_once 'config.php';
 include_once 'style.php';
 
-/* Capture start time for debugging. */
-$t_start = microtime();
-
 class Sin
 {
+    /* Configuration structure from config file. */
     public $cfg = NULL;
-    
+
+    /* List of timing measurements. */
+    public $times = array();
+
+    /**
+     * Initialize SIN.
+     */
     public function __construct() {
-        global $config, $t_start;
-        $this->cfg = $config;
-        $this->t_start = $t_start;
+        global $config;
         
+        $this->cfg = $config;
+
         $this->setupDebug();
         
         /* Set default values in config. */
@@ -45,8 +49,6 @@ class Sin
     }
 
 
-    public $times = array();
-    
     /**
      * Render a toolbox with the given title. $script is rendered and put
      * as content into the toolbox.
@@ -58,9 +60,7 @@ class Sin
         
         include_once "scripts/$script.php";
 
-        $context = array(
-            'sin' => $this,
-        );
+        $context = array('sin' => $this);
 
         $fname = "sin_get_$script";
         
@@ -86,7 +86,7 @@ class Sin
         }
 
         /* Store box processing time in ms. */
-        $this->times[$script] = (microtime() - $t_start) * 1000;
+        $this->times[$script] = 1000 * (microtime() - $t_start);
     }
 
     /**
@@ -99,12 +99,5 @@ class Sin
         foreach($boxspecs as $script => $spec) {
             $this->render_box($script, true);
         }
-    }
-
-    /**
-     * Returns the total processing time.
-     */
-    public function get_total_time() {
-        return (microtime() - $this->t_start) * 1000;
     }
 }
