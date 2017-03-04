@@ -37,7 +37,5 @@ function mem_get_info() {
     /* Percent of memory used. */
     $meminfo['htopPctInUse'] = $meminfo['htopInUse'] / $meminfo['MemTotal'];
 
-
-    
     return $meminfo;
 }
