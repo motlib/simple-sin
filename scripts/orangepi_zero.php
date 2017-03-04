@@ -1,4 +1,4 @@
-<?php /* -*- mode:html -*- */
+<?php 
 
 /**
  * OrangePi Zero specific data
@@ -6,12 +6,11 @@
 
 include_once 'utils/orangepi_zero.php';
 
-$info = orangepi_zero_get_info();
-?>
+function sin_get_orangepi_zero($sin, &$context) {
+    $info = orangepi_zero_get_info();
 
-<p>
-  CPUs running at
-  <?= fmt_bold($info['freq_s']) ?>.
-  SOC temperature is
-  <?= get_html_color($info['soc_temp_s'], $info['soc_temp_pct']) ?>.
-</p>
+    $context['soc_temp'] = fmt_sig($info['soc_temp'],2) . '℃ ';
+    $context['soc_temp_pct'] = $info['soc_temp_pct'];
+    $context['freq'] = fmt_sig($info['freq'] / 1000, 2) . 'MHz';
+}
+
