@@ -40,6 +40,7 @@ $( document ).ajaxComplete(function( event, request, settings ) {
         });
 
 <?php foreach($config['boxspecs'] as $script => $spec): ?>
+<?php if($spec['reload_time'] == 0) continue; ?>
         setInterval(function() {
             $("#content_<?= $script; ?>").load('box.php?script=<?php echo $script; ?>');
         }, <?= $spec['reload_time']; ?>);

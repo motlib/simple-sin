@@ -62,12 +62,6 @@ class Sin
             /* Configure error messages used for debugging. */
             error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
             ini_set("display_errors", 1);
-            
-            /* Add the internal debugging output box. */
-            $this->cfg['boxspecs']['debug'] = array(
-                'title' => 'Debug Box',
-                'reload_time' => 0,
-                'new' => true);
         }
     }
 

@@ -46,8 +46,12 @@ function fmt_bold($text) {
  * Round $num to the specified number of significant figures. 
  */
 function fmt_sig($num, $sig=3) {
-    $l = floor(log10($num)) + 1;
+    if($num == 0) {
+        return 0;
+    }
 
+    $l = floor(log10($num)) + 1;
+    
     $num = $num / pow(10, ($l - $sig));
     
     $num = round($num);    
