@@ -23,7 +23,7 @@ function net_get_dev_info($dev) {
     }
       
 
-    $devinfo['hwaddress'] = file_get_contents("/sys/class/net/${dev}/address");
+    $devinfo['hwaddress'] = trim(file_get_contents("/sys/class/net/${dev}/address"));
     $devinfo['rx_bytes'] = file_get_contents("/sys/class/net/${dev}/statistics/rx_bytes");
     $devinfo['tx_bytes'] = file_get_contents("/sys/class/net/${dev}/statistics/tx_bytes");
         

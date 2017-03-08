@@ -10,7 +10,7 @@ function get_css_color($val, $map) {
     $g = sprintf("%d", $col[1]);
     $b = sprintf("%d", $col[2]);
 
-    return "rgb($r, $g, $b)";;
+    return "rgb($r, $g, $b)";
 }    
 
 
