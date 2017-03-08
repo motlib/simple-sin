@@ -7,11 +7,11 @@
     <span id="tglind_<?= $script ?>">
       [<?= $boxspec['collapsed'] ? '+' : '-' ?>]
     </span>
-    <?php echo $boxspec['title']; ?>
+    <?= $title; ?>
   </h2>
   <div class="content"
        id="content_<?php echo $script; ?>"
        style="display:<?= $boxspec['collapsed'] ? 'none' : 'block' ?>">
-    <?php echo $output; ?>
+    <?= $output; ?>
   </div>
 </div>

@@ -79,7 +79,6 @@ class Sin
             'sin' => $this,
             'script' => $script,
             'boxspec' => $boxspec,
-            'title' => $boxspec['title'],
             'config' => $this->cfg,
         );
 

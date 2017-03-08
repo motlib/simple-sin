@@ -3,6 +3,8 @@
 include_once 'utils/sysinfo.php';
 
 function sin_get_sysinfo($sin, &$context) {
+    $context['title'] = 'System Information';
+    
     $loadavg = get_loadavg();
     $context['lavg_1'] = $loadavg[0];
     $context['lavg_5'] = $loadavg[1];

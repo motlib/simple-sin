@@ -3,6 +3,8 @@
 include_once 'utils/meminfo.php';
 
 function sin_get_mem_usage($sin, &$context) {
+    $context['title'] = 'Memory Usage';
+    
     //TODO: make meminfo return byte values
     $meminfo = mem_get_info();
     
