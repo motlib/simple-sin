@@ -34,8 +34,14 @@ function mem_get_info() {
     $meminfo['htopInUse'] =
         $meminfo['htopTotalUsed'] - $meminfo['Buffers'] - $meminfo['htopCached'];
 
+    /* Multiply everything by 1024 to have byte values. */
+    foreach($meminfo as $k => &$v) {
+        $v *= 1024;
+    }
+    
     /* Percent of memory used. */
     $meminfo['htopPctInUse'] = $meminfo['htopInUse'] / $meminfo['MemTotal'];
 
+    
     return $meminfo;
 }
