@@ -24,5 +24,3 @@ function render($path, $context = array())
 function display($path, $context = array()) {
     echo render($path, $context);
 }
-
-

@@ -33,12 +33,23 @@ class Sin
      * Set default values for some config elements.
      */
     protected function setConfigDefaults() {
+        $boxspec_defaults = array(
+            'collapsed' => false,
+            'reload_time' => 0,
+        );
+        
         /* Set default values in config. */
         foreach($this->cfg['boxspecs'] as &$boxspec) {
-            if(!array_key_exists('collapsed', $boxspec)) {
-                $boxspec['collapsed'] = false;
-            }
+            $boxspec = array_merge($boxspec_defaults, $boxspec);
         }
+
+        $web_defaults = array(
+            'debug' => false,
+            'fontsize' => '10pt',
+            'style' => 'default',
+        );
+
+        $this->cfg['web'] = array_merge($web_defaults, $this->cfg['web']);
     }
 
     
