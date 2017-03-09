@@ -66,6 +66,32 @@ class Sin
     }
 
 
+    protected function render_script($script, &$context) {
+
+        /* Update context with script specific data by including the
+         * script and calling the sin_get_$script function. */
+        $res = include_once "scripts/$script.php";
+        
+        if($res != true) {
+            $context['output'] = "<p>ERR: Script '$script' not found.</p>";
+            $context['title'] = 'ERROR';
+        } else {
+            $fname = "sin_get_$script";
+            if(!function_exists($fname)) {
+                $context['output'] = "<p>ERR: Function '$fname' not defined in script.</p>";
+                $context['title'] = 'ERROR';
+            } else {
+                
+                $fname($this, $context);
+            
+                $output = render("tmpl/${script}.php", $context);
+
+                $context['output'] = $output;
+            }
+        }
+    }
+
+    
     /**
      * Render a toolbox with the given title. $script is rendered and put
      * as content into the toolbox.
@@ -82,20 +108,13 @@ class Sin
             'config' => $this->cfg,
         );
 
-        $fname = "sin_get_$script";
 
-        /* Update context with script specific data by including the
-         * script and calling the sin_get_$script function. */
-        include_once "scripts/$script.php";
-        $fname($this, $context);
-        
-        $output = render("tmpl/${script}.php", $context);
+        $this->render_script($script, $context);
         
         /* Render the toolbox */
         if($with_toolbox == false) {
-            echo $output;
+            echo $context['output'];
         } else {
-            $context['output'] = $output;
             display('tmpl/toolbox.php', $context);
         }
 
