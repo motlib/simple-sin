@@ -19,7 +19,11 @@
   </head>
 
   <body>
-    <h1>SIN - System Information</h1>
+    <h1>SINs
+      <?php if($sin->cfg['web']['system_name'] != ''): ?>
+      of <?= $sin->cfg['web']['system_name'] ?>
+      <?php endif; ?>
+    </h1>
     
     <?php $sin->render_boxes(); ?>
 
