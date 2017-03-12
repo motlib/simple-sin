@@ -44,6 +44,7 @@ class Sin
         }
 
         $web_defaults = array(
+            'system_name' => '',
             'debug' => false,
             'fontsize' => '10pt',
             'style' => 'default',
