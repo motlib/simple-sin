@@ -1,18 +1,35 @@
 <?php
 
 $config = array(
-    /* Boxes to show */
     'boxspecs' => array(
         'sysinfo' => array(
-            'reload_time' => 5000,),
+            'enabled' => true,
+            'reload_time' => 5000),
+        
         'mem_usage' => array(
-            'reload_time' => 5100,),
-        'orangepi_zero' => array(
-            'reload_time' => 5200,),
+            'enabled' => true,
+            'reload_time' => 5010),
+        
         'storage' => array(
-            'reload_time' => 5300,),
+            'enabled' => true,
+            'reload_time' => 5015),
+
+        'orangepi_zero' => array(
+            'enabled' => false,
+            'reload_time' => 5100),
+        
         'network_ifaces' => array(
-            'reload_time' => 5400,),
+            'enabled' => true,
+            'reload_time' => 5020),
+        
+        'hostlist' => array(
+            'enabled' => true,
+            'hosts' => array(
+                'http://aee.cn.kostal.int/sin' => 'AEE')),
+        
+        'processes' => array(
+            'enabled' => false,
+            'reload_time' => 5500,),
     ),
 
     /* Network config */
@@ -25,6 +42,7 @@ $config = array(
 
     /* General webpage config */
     'web' => array(
+        'system_name' => 'My System',
         'debug' => false,
         'style' => 'default',
         'fontsize' => '8pt'),

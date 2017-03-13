@@ -34,8 +34,10 @@ class Sin
      */
     protected function setConfigDefaults() {
         $boxspec_defaults = array(
+            'enabled' => true,
             'collapsed' => false,
             'reload_time' => 0,
+            
         );
         
         /* Set default values in config. */
@@ -109,9 +111,14 @@ class Sin
             'config' => $this->cfg,
         );
 
-
-        $this->render_script($script, $context);
-        
+        /* Check if the script is enabled. If yes, run the script
+         * function. If not, instead return error message. */
+        if($boxspec['enabled']) {
+            $this->render_script($script, $context);
+        } else {
+            $context['output'] = 'ERR: Script is disabled.';
+        }
+            
         /* Render the toolbox */
         if($with_toolbox == false) {
             echo $context['output'];
@@ -125,14 +132,17 @@ class Sin
 
     
     /**
-     * Render all toolboxes described in the boxspecs structure (list of
-     * title, script pairs).
+     * Render all toolboxes described in the boxspecs structure (list
+     * of title, script pairs).
      */
     public function render_boxes() {
         $boxspecs = $this->cfg['boxspecs'];
         
         foreach($boxspecs as $script => $spec) {
-            $this->render_box($script, true);
+            /* Only render the box if it is enabled. */
+            if($spec['enabled']) {
+                $this->render_box($script, true);
+            }
         }
     }
 }
