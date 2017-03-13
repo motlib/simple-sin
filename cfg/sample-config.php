@@ -25,7 +25,7 @@ $config = array(
         'hostlist' => array(
             'enabled' => true,
             'hosts' => array(
-                'http://aee.cn.kostal.int/sin' => 'AEE')),
+                'http://opi1/sin' => 'OPi1')),
         
         'processes' => array(
             'enabled' => false,
