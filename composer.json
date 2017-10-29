@@ -1,7 +1,14 @@
 {
-    "require": {
-    },
     "autoload": {
         "psr-4": {"motlib\\sin\\": "src/"}
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/motlib/webfw.git"
+        }
+    ],
+    "require": {
+        "motlib/webfw": "dev-master"
     }
 }
