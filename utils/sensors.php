@@ -4,7 +4,7 @@ include_once "utils/cmd.php";
 
 function bme280_get_data() {
     //FIXME: Everything's hardcoded... :-(
-    $out = get_cmd_output('python /opt/bme280/bme280.py --os 2');
+    $out = get_cmd_output('python3 /opt/bme280/bme280.py --os 3');
 
     $lines = split("\n", $out);
 
