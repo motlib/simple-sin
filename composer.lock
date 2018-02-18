@@ -1,0 +1,36 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8ad422b5c45516dbc3c500926270bd4b",
+    "packages": [
+        {
+            "name": "motlib/webfw",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/motlib/webfw.git",
+                "reference": "b0d0cfe02b53406570bf328489dab9631569a9b9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Motlib\\WebFW": "src"
+                }
+            },
+            "time": "2018-02-18T08:54:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "motlib/webfw": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
