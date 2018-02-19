@@ -1,9 +1,4 @@
 <!-- -*- mode:html -*- -->
-<?php
-   //include_once 'utils/sin.php';
-   //$sin = new Sin();
-?>   
-
 <!DOCTYPE html>
 <html>
   <head>

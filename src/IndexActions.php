@@ -14,6 +14,8 @@ class IndexActions {
             'boxes' => 't.b.d.',
         ];
 
+        $cfg = $context->getConfig();
+
         return new PageResponse('hello world!');
     }
 

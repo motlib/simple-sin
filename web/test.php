@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 $loader = require_once __DIR__ . '/../vendor/autoload.php';
 
 //use Motlib\WebFW\Controller;
